@@ -22,7 +22,7 @@
 		  <div class="item-container-content">
 		    <label class="item">
 		      <div class="item-input-wrapper item-input-wrapper-button">
-		        <input type="number" step="0.01" class="item-input" name="ipAddress" id="ipAddress" placeholder="127.0.0.1">
+		        <input type="text" class="item-input" name="ipAddress" id="ipAddress" placeholder="127.0.0.1">
 		      </div>
 		      <input type="button" class="item-button item-input-button" value="Save" onclick="var options={ipAddress: document.getElementById('ipAddress').value}; document.location = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(options)); console.log('sending ' + JSON.stringify(options));">
 		    </label>
