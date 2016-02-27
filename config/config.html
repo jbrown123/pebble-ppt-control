@@ -20,10 +20,10 @@
 		<script language="javascript">
 			window.addEventListener('load', function() 
 			{
-				// copy values from query parameters
-				$('#ipAddress').val(getQueryParam('ipAddress'));
-				$('#shakeAway-'+getQueryParam('shakeAway', 'forward')).prop('selected', 'selected');
-				$('#shakeTowards-'+getQueryParam('shakeTowards', 'forward')).prop('selected', 'selected');
+				// copy values from local storage
+				$('#ipAddress').val(localStorage['ipAddress']);
+				$('#shakeAway-'+localStorage['shakeAway'] || 'forward').prop('selected', 'selected');
+				$('#shakeTowards-'+localStorage['shakeTowards'] || 'forward').prop('selected', 'selected');
 			}, false);
 			
 			// Get query variables
@@ -110,7 +110,12 @@
 							shakeAway: $('#shakeAway').val(), 
 							shakeTowards: $('#shakeTowards').val()
 						};
+						$.each(options, function(key, value)
+						{
+							localStorage[key] = value;
+						});
 						console.log('sending ' + JSON.stringify(options));
+						console.log('localStorage ' + JSON.stringify(localStorage));
 						
 						document.location = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(options)); 
 					}
