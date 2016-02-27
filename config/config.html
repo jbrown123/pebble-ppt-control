@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>PPT Control Config</title>
+		<script src='slate.min.js'></script>
+		<script src='Sortable.min.js'></script>
+		<script src='zepto.min.js'></script>
+		<link rel="stylesheet" href="slate.min.css">
+	</head>
+	<body>
+
+		<div class="item-container">
+		  <div class="item-container-content">
+		    <div class="item">
+		    Enter the IP address of the machine you are using to run PowerPoint.
+		    The server (node main.js) should be running on that box along with your PowerPoint presentation.
+		    </div>
+		  </div>
+		</div>
+			
+		<div class="item-container">
+		  <div class="item-container-header">Server IP Address</div>
+		  <div class="item-container-content">
+		    <label class="item">
+		      <div class="item-input-wrapper item-input-wrapper-button">
+		        <input type="text" class="item-input" name="ipAddress" id="ipAddress" placeholder="127.0.0.1">
+		      </div>
+		      <input type="button" class="item-button item-input-button" value="Save" onclick="var options={ipAddress: document.getElementById('ipAddress').value}; document.location = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(options)); console.log('sending ' + JSON.stringify(options));">
+		    </label>
+		  </div>
+		</div>
+	</body>
+</html>
